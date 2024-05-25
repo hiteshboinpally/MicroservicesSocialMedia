@@ -3,14 +3,14 @@ import { AuthContext } from '../../context/AuthContext';
 import './Auth.css';
 
 const SignIn = () => {
-  const { login } = useContext(AuthContext);
+  const setUser = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Implement your authentication logic here
-    login({ username });
+    setUser(username);
   };
 
   return (

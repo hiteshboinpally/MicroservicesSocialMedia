@@ -4,7 +4,7 @@ import FriendsList from './FriendsList';
 import './Profile.css';
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const user = useContext(AuthContext);
 
   if (!user) return <p className="container">Please sign in to view your profile.</p>;
 
