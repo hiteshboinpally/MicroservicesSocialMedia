@@ -1,7 +1,7 @@
 // src/Login.js
 import React from 'react';
 import { auth, googleProvider } from './firebase';
-import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth";
+import { signInWithRedirect } from "firebase/auth";
 
 const Login = () => {
   const signInWithGoogle = async () => {
