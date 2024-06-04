@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Application Specific Setup
+In the source directory, run:
+```
+set -a # automatically export all variables
+source .env
+set +a
+```
+
+
+
+# [Genearl React Setup] Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
