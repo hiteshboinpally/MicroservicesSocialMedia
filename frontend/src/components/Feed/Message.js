@@ -10,6 +10,7 @@ const Message = ({ message }) => {
 
   return (
     <div className="message">
+      <h4>Author: {message.author}</h4>
       <p>{message.content}</p>
       <div className="buttons">
         <button onClick={handleUpvote}>Upvote ({upvotes})</button>

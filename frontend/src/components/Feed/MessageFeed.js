@@ -1,15 +1,17 @@
 // src/MessageFeed.js
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Message from './Message';
 import './MessageFeed.css';
+import { AuthContext } from '../../context/AuthContext';
 
 const MessageFeed = () => {
   const [messages, setMessages] = useState([
-    { id: 1, content: 'Message 1', upvotes: 0, downvotes: 0 },
-    { id: 2, content: 'Message 2', upvotes: 0, downvotes: 0 },
+    { id: 1, author: 'Anonymous', content: 'Message 1', upvotes: 0, downvotes: 0 },
+    { id: 2, author: 'Elon Musk', content: 'Message 2', upvotes: 0, downvotes: 0 },
   ]);
   const [newMessageContent, setNewMessageContent] = useState('');
   const [genMessageContext, setGenMessageContext] = useState('');
+  const currentUser = useContext(AuthContext);
 
   const handleNewMsgInputChange = (e) => {
     setNewMessageContent(e.target.value);
@@ -24,6 +26,7 @@ const MessageFeed = () => {
     if (newMessageContent.trim()) {
       const newMessage = {
         id: messages.length + 1, // Simple id generation
+        author: currentUser ? currentUser.displayName : 'Anonymous',
         content: newMessageContent,
         upvotes: 0,
         downvotes: 0,
@@ -62,6 +65,7 @@ const MessageFeed = () => {
         console.log(data);
         const newMessage = {
           id: messages.length + 1, // Simple id generation
+          author: currentUser ? currentUser.displayName : 'Anonymous',
           content: data.data.outputs[0].text,
           upvotes: 0,
           downvotes: 0,

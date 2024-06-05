@@ -7,7 +7,6 @@ import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './components/Auth/Home';
 import Login from './components/Auth/Login';
-import Signup from './components/Auth/Signup';
 
 const App = () => {
   return (
@@ -16,7 +15,6 @@ const App = () => {
       <Navigation />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<PrivateRoute />}>
           <Route path="/" element={<Home />} />
         </Route>
