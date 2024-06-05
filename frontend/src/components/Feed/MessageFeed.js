@@ -13,6 +13,25 @@ const MessageFeed = () => {
   const [genMessageContext, setGenMessageContext] = useState('');
   const currentUser = useContext(AuthContext);
 
+  const getAllMessages = () => {
+    // TODO: Fetch call to get all messages.
+    // make sure to then also call this method and store the results into the MessageFeed with
+    // `setMessages` function call
+  }
+
+  const createNewMessage = (msgContent) => {
+    // await fetch()
+    // TODO: Make fetch call to upload the new message?
+    const newMessage = {
+      id: messages.length + 1, // Simple id generation
+      author: currentUser ? currentUser.displayName : 'Anonymous',
+      content: msgContent,
+      upvotes: 0,
+      downvotes: 0,
+    };
+    setMessages([...messages, newMessage]);
+  }
+
   const handleNewMsgInputChange = (e) => {
     setNewMessageContent(e.target.value);
   };
@@ -103,9 +122,6 @@ const MessageFeed = () => {
         />
         <button type="submit">Generate New Message</button>
       </form>
-      {/* <div className="generate-button">
-        <button onClick={handleGenerateMessage}></button>
-      </div> */}
       {messages.map((message) => (
         <Message key={message.id} message={message} />
       ))}

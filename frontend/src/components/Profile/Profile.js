@@ -4,6 +4,7 @@ import FriendsList from './FriendsList';
 import './Profile.css';
 
 const Profile = () => {
+  // TODO: Need fetching logic here for follow / unfollow. For now, not really supported.
   const currentUser = useContext(AuthContext);
   if (!currentUser) return <p className="container">Please sign in to view your profile.</p>;
 
